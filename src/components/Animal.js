@@ -1,0 +1,1 @@
+// useEffect() + card to display animal details 
