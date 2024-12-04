@@ -8,10 +8,9 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/"/>
-          <Route path="/add" element={<h1>Read Component</h1>}/>
-          <Route path="/read" element={<h1>Read Component</h1>}/>
-          <Route path="/update" element={<h1>Read Component</h1>}/>
+          <Route path="/home" element={<h1>home</h1>}/>
+          <Route path="/adoptable" element={<h1>adoptable animals</h1>}/>
+          <Route path="/create" element={<h1>create listing</h1>}/>
         </Routes>
       </Router>
   );
