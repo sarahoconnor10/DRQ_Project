@@ -19,7 +19,7 @@ const Animal = (props) => {
                         <footer>{props.animal.animalType}, Age {props.animal.age}</footer>
                     </blockquote>
                 </Card.Body>
-                <Link to={"/edit/" + props.animal.id} className = "btn btn-primary">Edit</Link>
+                <Link to={"/edit/" + props.animal._id} className = "btn btn-primary">Edit</Link>
             </Card>
         </div>
     );

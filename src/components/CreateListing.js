@@ -4,7 +4,6 @@ import { useState } from "react";
 //form to input animal data + submit button
 
 const CreateListing = () => {
-    const [id, setID] = useState('');
     const [name, setName] = useState('');
     const [animalType, setAnimalType] = useState('');
     const [age, setAge] = useState('');
@@ -12,7 +11,7 @@ const CreateListing = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const animal = { id, name, animalType, age, image };
+        const animal = { name, animalType, age, image };
         console.log(animal);
 
         axios.post('http://localhost:4000/api/Animals', animal)
@@ -24,14 +23,6 @@ const CreateListing = () => {
         <div>
             <h1>Create new listing</h1>
             <form onSubmit={ handleSubmit }>
-            <div className="form-group">
-                    <label>Animal ID:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={id}
-                        onChange={(e) => { setID(e.target.value) }}
-                    />
-                </div>
                 <div className="form-group">
                     <label>Name:</label>
                     <input type="text"

@@ -1,10 +1,9 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-const EditListing = (props) => {
+const EditListing = () => {
     let { id } = useParams();
     const [name, setName] = useState('');
     const [animalType, setAnimalType] = useState('');
@@ -14,24 +13,27 @@ const EditListing = (props) => {
 
     useEffect(() => {
         axios.get('http://localhost:4000/api/Animals/' + id)
-            .then((response) => {
-                setName(response.data.name);
-                setAnimalType(response.data.animalType)
-                setAge(response.data.age);
-                setImage(response.data.image);
+            .then((res) => {
+                setName(res.data.name);
+                setAnimalType(res.data.animalType)
+                setAge(res.data.age);
+                setImage(res.data.image);
             })
-            .catch((error) => {
-                console.log(error);
+            .catch((err) => {
+                console.log(err);
             });
     }, [id]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const newAnimal = { id, name, animalType, age, image };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const newAnimal = { name, animalType, age, image };
         axios.put('http://localhost:4000/api/Animals/' + id, newAnimal)
             .then((res) => {
                 console.log(res.data);
-                navigate('/read');
+                navigate('/');
+            })
+            .catch((err)=>{
+                console.log(err);
             });
     }
 
@@ -42,7 +44,7 @@ const EditListing = (props) => {
             <hr/>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Name:</label>
+                    <label>Edit Name: </label>
                     <input type="text"
                         className="form-control"
                         value={name}
@@ -50,7 +52,7 @@ const EditListing = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Type:</label>
+                    <label>Edit Type: </label>
                     <input type="text"
                         className="form-control"
                         value={animalType}
@@ -58,7 +60,7 @@ const EditListing = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Age:</label>
+                    <label>Edit Age: </label>
                     <input type="text"
                         className="form-control"
                         value={age}
@@ -66,7 +68,7 @@ const EditListing = (props) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Image link:</label>
+                    <label>Edit Image link: </label>
                     <input type="text"
                         className="form-control"
                         value={image}
@@ -74,7 +76,7 @@ const EditListing = (props) => {
                     />
                 </div>
                 <div>
-                    <input type="submit" value="Create listing"></input>
+                    <input type="submit" value="Edit Listing" className="btn btn-primary"/>
                 </div>
             </form>
         </div>
