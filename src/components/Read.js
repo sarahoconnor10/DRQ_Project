@@ -5,20 +5,24 @@ import axios from "axios";
 const Read = () => {
     const [animals, setAnimals] = useState([]);
 
-    useEffect(() => {
+    const ReloadData = () => {
         axios.get('http://localhost:4000/api/Animals')
-            .then((response) => {
-                //console.log(response.data);
-                setAnimals(response.data.animals);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    });
+        .then((res) => {
+            console.log(res.data);
+            setAnimals(res.data.animals);
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+    }
+    
+    useEffect(() => {
+        ReloadData();
+    }, []);
 
     return (
         <div>
-            <AdoptableAnimals Animals={animals} />
+            <AdoptableAnimals Animals={animals}  ReloadData={ReloadData}/>
         </div>
     );
 }

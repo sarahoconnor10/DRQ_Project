@@ -50,6 +50,12 @@ app.put('/api/Animals/:id', async (req, res) => {
   res.send(a);
 });
 
+app.delete('/api/Animals/:id', async (req, res) => {
+  console.log("Deleting animal with ID: " + req.params.id);
+  const a = await animalModel.findByIdAndDelete(req.params.id);
+  res.status(200).send({ message: "Animal deleted successfully", a});
+});
+
 app.post('/api/Animals', async (req, res) => {
   const { name, animalType, age, image } = req.body;
   const newAnimal = new animalModel({ name, animalType, age, image });

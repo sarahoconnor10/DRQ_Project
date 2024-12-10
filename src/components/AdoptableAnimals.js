@@ -4,7 +4,11 @@ import Animal from "./Animal";
 const AdoptableAnimals = (props) => {
     return props.Animals.map(
         (tempAnimal) => {
-            return <Animal animal={tempAnimal} key={tempAnimal._id} />
+            return <Animal 
+                animal={tempAnimal} 
+                key={tempAnimal._id} 
+                Reload={props.ReloadData} 
+            />
         }
     );
 }
