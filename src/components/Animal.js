@@ -1,26 +1,26 @@
 // useEffect() + card to display animal details 
 import { useEffect } from "react";
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import axios from "axios";
+
 
 const Animal = (props) => {
+    useEffect(() => {
+        console.log("animal item: ", props.myAnimal)
+    }, [props.animal]);
+
     return (
         <div>
-            <Card>
-                <Card.Header>
-                    Header
-                </Card.Header>
+             <Card>
+                <Card.Header>{props.animal.name}</Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
-                        <img src="" alt="" />
-                        <footer>Footer</footer>
+                        <img src={props.animal.image} alt={props.animal.name} />
+                        <footer>{props.animal.animalType}, Age {props.animal.age}</footer>
                     </blockquote>
                 </Card.Body>
             </Card>
         </div>
-    )
+    );
 }
 
 export default Animal;
