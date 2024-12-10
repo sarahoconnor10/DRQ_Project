@@ -1,5 +1,3 @@
-// set up server on port 4000
-// link to mongodb db
 const express = require('express');
 const app = express();
 const port = 4000;
@@ -42,12 +40,12 @@ app.get('/api/Animals', async (req, res) => {
   //^^ sends back json object of animals array
 });
 
-app.get('/api/animal/:id', async (req, res) => {
-  let a = await animalModel.findById({_id: req.params.id });
-  res.send(a);
+app.get('/api/Animals/:id', async (req, res) => {
+  let a = await animalModel.findById(req.params.id);
+  res.json(a);
 });
 
-app.put('/api/animal/:id', async (req, res) => {
+app.put('/api/Animals/:id', async (req, res) => {
   let a = await animalModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
   res.send(a);
 });
