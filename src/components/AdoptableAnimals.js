@@ -1,11 +1,11 @@
 // map each animal to form a list
-import { useEffect, useState } from "react";
-import axios from "axios";
+import Animal from "./Animal";
 
-const AdoptableAnimals = () => {
-    return (
-
-        <h1>AdoptableAnimals component</h1>
+const AdoptableAnimals = (props) => {
+    return props.Animals.map(
+        (tempAnimal) => {
+            return <Animal animal = {tempAnimal} key = {tempAnimal.name} />
+        }
     )
 }
 
