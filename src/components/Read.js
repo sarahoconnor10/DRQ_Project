@@ -18,9 +18,9 @@ const Read = () => {
     
     return (
         <div>
-            <Animal animalData={animals}/>
+            <Animal Animals = {animals}/>
         </div>
-    )
+    );
 }
 
 export default Read;
