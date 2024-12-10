@@ -1,18 +1,10 @@
 import Animal from "./Animal";
+import { useState } from "react";
 
 const Read = () => {
-    const animals = [
-        {
-            "Name": "Trixie",
-            "Type": "Dog",
-            "Age": "12"
-        },
-        {
-            "Name": "Millie",
-            "Type": "Dog",
-            "Age": "8"
-        }
-    ];
+   const [animals, setAnimals] = useState([]);
+
+
     
     return (
         <div>
