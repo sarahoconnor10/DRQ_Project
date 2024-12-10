@@ -20,7 +20,7 @@ const CreateListing = () => {
     }
 
     return (
-        <div>
+        <div className="App">
             <h1>Create new listing</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -55,8 +55,9 @@ const CreateListing = () => {
                         onChange={(e) => { setImage(e.target.value) }}
                     />
                 </div>
+                <br></br>
                 <div>
-                    <input type="submit" value="Create listing"></input>
+                    <input type="submit" value="Create listing" className="btn btn-primary" />
                 </div>
             </form>
         </div>

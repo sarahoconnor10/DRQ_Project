@@ -39,7 +39,7 @@ const EditListing = () => {
 
 
     return (
-        <div>
+        <div className="App">
             <h1>Edit Listing</h1>
             <hr />
             <form onSubmit={handleSubmit}>
@@ -75,6 +75,7 @@ const EditListing = () => {
                         onChange={(e) => { setImage(e.target.value) }}
                     />
                 </div>
+                <br></br>
                 <div className="form-group">
                     <input type="submit" value="Edit Listing" className="btn btn-primary" />
                 </div>

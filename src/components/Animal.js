@@ -1,4 +1,3 @@
-// useEffect() + card to display animal details 
 import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -9,12 +8,12 @@ const Animal = (props) => {
     const handleDelete = (e) => {
         e.preventDefault();
         axios.delete('http://localhost:4000/api/Animals/' + props.animal._id)
-        .then((res)=>{
-            props.Reload();
-          })
-          .catch((error)=>{
-            console.log(error);
-          });
+            .then((res) => {
+                props.Reload();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     useEffect(() => {
@@ -22,17 +21,28 @@ const Animal = (props) => {
     }, [props.animal]);
 
     return (
-        <div>
-            <Card>
-                <Card.Header>{props.animal.name}</Card.Header>
+        <div className="App" style={{
+                                display: "flex", 
+                                justifyContent: "center", 
+                                alignItems: "center", 
+                                margin: 10}}>
+            <Card style={{width: "18rem"}} border="muted">
+                <Card.Img
+                    alt={props.animal.name}
+                    src={props.animal.image}
+                    style={{ height: 280, width: "18rem" }}
+                    variant="top"
+                />
                 <Card.Body>
-                    <blockquote className="blockquote mb-0">
-                        <img src={props.animal.image} alt={props.animal.name} />
-                        <footer>{props.animal.animalType}</footer>
-                    </blockquote>
+                    <Card.Title>{props.animal.name}</Card.Title>
+                    <Card.Text>
+                        {props.animal.animalType}, Age {props.animal.age}
+                    </Card.Text>
+                    
+                    <Link to={"/edit/" + props.animal._id} className="btn btn-primary" style={{margin: 2.5}}>Edit</Link>
+                    <Button className="btn btn-danger" onClick={handleDelete} style={{margin: 2.5}}>Delete</Button>
+                    
                 </Card.Body>
-                <Link to={"/edit/" + props.animal._id} className="btn btn-primary">Edit</Link>
-                <Button className="btn btn-danger" onClick={handleDelete}>Delete</Button>
             </Card>
         </div>
     );
