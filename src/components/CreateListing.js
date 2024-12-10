@@ -22,37 +22,37 @@ const CreateListing = () => {
     return (
         <div>
             <h1>Create new listing</h1>
-            <form onSubmit={ handleSubmit }>
-                <div className="form-group">
-                    <label>Name:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={name}
-                        onChange={(e) => { setName(e.target.value) }}
+            <form onSubmit = { handleSubmit }>
+                <div className = "form-group">
+                    <label>Add Name: </label>
+                    <input type = "text"
+                        className = "form-control"
+                        value = {name}
+                        onChange = {(e) => { setName(e.target.value) }}
+                    />
+                </div>
+                <div className = "form-group">
+                    <label>Add Type: </label>
+                    <input type = "text"
+                        className = "form-control"
+                        value = {animalType}
+                        onChange = {(e) => { setAnimalType(e.target.value) }}
+                    />
+                </div>
+                <div className = "form-group">
+                    <label>Add Age: </label>
+                    <input type = "text"
+                        className = "form-control"
+                        value = {age}
+                        onChange = {(e) => { setAge(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
-                    <label>Type:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={animalType}
-                        onChange={(e) => { setAnimalType(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Age:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={age}
-                        onChange={(e) => { setAge(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Image link:</label>
-                    <input type="text"
-                        className="form-control"
-                        value={image}
-                        onChange={(e) => { setImage(e.target.value) }}
+                    <label>Add Image link: </label>
+                    <input type = "text"
+                        className = "form-control"
+                        value = {image}
+                        onChange = {(e) => { setImage(e.target.value) }}
                     />
                 </div>
                 <div>

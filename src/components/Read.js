@@ -14,7 +14,7 @@ const Read = () => {
         .catch((error) => {
             console.log(error);
         });
-    }, []);
+    });
     
     return (
         <div>
@@ -22,5 +22,5 @@ const Read = () => {
         </div>
     );
 }
-
+//http://localhost:4000/api/Animals/675448f50b1e615628c6c45c
 export default Read;

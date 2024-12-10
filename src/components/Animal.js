@@ -16,7 +16,7 @@ const Animal = (props) => {
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
                         <img src={props.animal.image} alt={props.animal.name} />
-                        <footer>{props.animal.animalType}, Age {props.animal.age}</footer>
+                        <footer>{props.animal.animalType}{props.animal.age}</footer>
                     </blockquote>
                 </Card.Body>
                 <Link to={"/edit/" + props.animal._id} className = "btn btn-primary">Edit</Link>
