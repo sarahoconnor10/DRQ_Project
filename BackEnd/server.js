@@ -23,19 +23,32 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://admin:admin@cluster0.4a5pk.mongodb.net/DB11');
+mongoose.connect('mongodb+srv://admin:admin@cluster0.4a5pk.mongodb.net/DB2');
+//^ connect to cluster with Animals data
 
 const animalSchema = new mongoose.Schema({
-  //data types here e.g. type:string, name:string, image:string, etc
+  name: String,
+  animalType: String,
+  age: String,
+  image: String
 });
 
-const animalModel = new mongoose.model('animals', animalSchema);
+const animalModel = new mongoose.model('Animals', animalSchema);
+//^^ provides methods to interact with Animals collection in cluster
 
-//app.get('/') //home route
-//app.get('/adoptable') //adoptable route
-//app.get('/adoptable/delete') //delete route
-//app.get('/adoptable/:id') //adoptable by id route
-//app.get('/adoptable/:type') //adoptable by animal type route
-//app.post('')      // add animal
-//app.put('')       // update animal
+app.get('/api/Animals', async (req, res) => {
+  const animals = await animalModel.find({});
+  res.status(200).json({ animals });
+  //^^ sends back json object of animals array
+});
+
+app.post('/api/Animals', async (req, res) => {
+  const { name, animalType, age, image } = req.body;
+  const newAnimal = new animalModel({ name, animalType, age, image });
+  await newAnimal.save();
+  res.status(201).json({ "message": "Animal added.", Animal: newAnimal });
+  //^^ send back json data with message + animal item
+});
+
+
 
