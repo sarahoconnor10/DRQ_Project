@@ -22,9 +22,9 @@ const CreateListing = () => {
     return (
         <div>
             <h1>Create new listing</h1>
-            <form>
+            <form onSubmit={ handleSubmit }>
                 <div className="form-group">
-                    <label>name:</label>
+                    <label>Name:</label>
                     <input type="text"
                         className="form-control"
                         value={name}
