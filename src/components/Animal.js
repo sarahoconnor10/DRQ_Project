@@ -1,6 +1,7 @@
 // useEffect() + card to display animal details 
 import { useEffect } from "react";
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 
 
 const Animal = (props) => {
@@ -18,6 +19,7 @@ const Animal = (props) => {
                         <footer>{props.animal.animalType}, Age {props.animal.age}</footer>
                     </blockquote>
                 </Card.Body>
+                <Link to={"/edit/" + props.animal.id} className = "btn btn-primary">Edit</Link>
             </Card>
         </div>
     );

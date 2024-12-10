@@ -6,15 +6,17 @@ import Home from './components/Home';
 import AdoptableAnimals from './components/AdoptableAnimals';
 import CreateListing from './components/CreateListing';
 import Read from './components/Read';
+import EditListing from './components/EditListing';
 
 function App() {
   return (
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<h1>Home</h1>}/>
-          <Route path="/adoptable" element={<Read/>}/>
-          <Route path="/create" element={<CreateListing/>}/>
+          <Route path="/" element = {<h1>Home</h1>}/>
+          <Route path="/adoptable" element = {<Read/>}/>
+          <Route path="/create" element = {<CreateListing/>}/>
+          <Route path="edit/:id" element = {<EditListing/>} />
         </Routes>
       </Router>
   );
