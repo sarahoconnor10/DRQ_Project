@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 //form to input animal data + submit button
@@ -8,6 +9,7 @@ const CreateListing = () => {
     const [animalType, setAnimalType] = useState('');
     const [age, setAge] = useState('');
     const [image, setImage] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +17,10 @@ const CreateListing = () => {
         console.log(animal);
 
         axios.post('http://localhost:4000/api/Animals', animal)
-            .then((res) => { console.log(res.data) })
+            .then((res) => { 
+                console.log(res.data);
+                navigate('/');
+             })
             .catch();
     }
 
