@@ -38,7 +38,7 @@ const EditListing = (props) => {
 
     return (
         <div>
-            <h1>Edit Listing - Animal { id }</h1>
+            <h1>Edit Listing</h1>
             <hr/>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">

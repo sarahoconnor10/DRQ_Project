@@ -42,6 +42,16 @@ app.get('/api/Animals', async (req, res) => {
   //^^ sends back json object of animals array
 });
 
+app.get('/api/animal/:id', async (req, res) => {
+  let a = await animalModel.findById({_id: req.params.id });
+  res.send(a);
+});
+
+app.put('/api/animal/:id', async (req, res) => {
+  let a = await animalModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.send(a);
+});
+
 app.post('/api/Animals', async (req, res) => {
   const { name, animalType, age, image } = req.body;
   const newAnimal = new animalModel({ name, animalType, age, image });
