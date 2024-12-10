@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import axios from "axios";
 
 //form to input animal data + submit button
 
@@ -22,37 +22,37 @@ const CreateListing = () => {
     return (
         <div>
             <h1>Create new listing</h1>
-            <form onSubmit = { handleSubmit }>
-                <div className = "form-group">
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
                     <label>Add Name: </label>
-                    <input type = "text"
-                        className = "form-control"
-                        value = {name}
-                        onChange = {(e) => { setName(e.target.value) }}
+                    <input type="text"
+                        className="form-control"
+                        value={name}
+                        onChange={(e) => { setName(e.target.value) }}
                     />
                 </div>
-                <div className = "form-group">
+                <div className="form-group">
                     <label>Add Type: </label>
-                    <input type = "text"
-                        className = "form-control"
-                        value = {animalType}
-                        onChange = {(e) => { setAnimalType(e.target.value) }}
+                    <input type="text"
+                        className="form-control"
+                        value={animalType}
+                        onChange={(e) => { setAnimalType(e.target.value) }}
                     />
                 </div>
-                <div className = "form-group">
+                <div className="form-group">
                     <label>Add Age: </label>
-                    <input type = "text"
-                        className = "form-control"
-                        value = {age}
-                        onChange = {(e) => { setAge(e.target.value) }}
+                    <input type="text"
+                        className="form-control"
+                        value={age}
+                        onChange={(e) => { setAge(e.target.value) }}
                     />
                 </div>
                 <div className="form-group">
                     <label>Add Image link: </label>
-                    <input type = "text"
-                        className = "form-control"
-                        value = {image}
-                        onChange = {(e) => { setImage(e.target.value) }}
+                    <input type="text"
+                        className="form-control"
+                        value={image}
+                        onChange={(e) => { setImage(e.target.value) }}
                     />
                 </div>
                 <div>

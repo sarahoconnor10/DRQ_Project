@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import AdoptableAnimals from "./AdoptableAnimals";
+import axios from "axios";
 
 const Read = () => {
-   const [animals, setAnimals] = useState([]);
+    const [animals, setAnimals] = useState([]);
 
-   useEffect(() => {
-    axios.get('http://localhost:4000/api/Animals')
-        .then((response) => {
-            //console.log(response.data);
-            setAnimals(response.data.animals);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+    useEffect(() => {
+        axios.get('http://localhost:4000/api/Animals')
+            .then((response) => {
+                //console.log(response.data);
+                setAnimals(response.data.animals);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     });
-    
+
     return (
         <div>
-            <AdoptableAnimals Animals = {animals}/>
+            <AdoptableAnimals Animals={animals} />
         </div>
     );
 }
-//http://localhost:4000/api/Animals/675448f50b1e615628c6c45c
+
 export default Read;

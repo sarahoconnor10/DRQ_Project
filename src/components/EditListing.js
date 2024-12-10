@@ -32,7 +32,7 @@ const EditListing = () => {
                 console.log(res.data);
                 navigate('/');
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
             });
     }
@@ -41,7 +41,7 @@ const EditListing = () => {
     return (
         <div>
             <h1>Edit Listing</h1>
-            <hr/>
+            <hr />
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Edit Name: </label>
@@ -68,19 +68,19 @@ const EditListing = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Edit Image link: </label>
+                    <label>Edit Image Link: </label>
                     <input type="text"
                         className="form-control"
                         value={image}
                         onChange={(e) => { setImage(e.target.value) }}
                     />
                 </div>
-                <div>
-                    <input type="submit" value="Edit Listing" className="btn btn-primary"/>
+                <div className="form-group">
+                    <input type="submit" value="Edit Listing" className="btn btn-primary" />
                 </div>
             </form>
         </div>
-    )
+    );
 }
 
 export default EditListing;

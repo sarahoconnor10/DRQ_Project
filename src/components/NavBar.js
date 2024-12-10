@@ -4,11 +4,11 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const NavBar = () => {
     return (
-        <Navbar bg="dark" data-bs-theme="dark" >
+        <Navbar bg = "dark" data-bs-theme = "dark" >
             <Container>
-            <Navbar.Brand href="/">Home</Navbar.Brand>
-              <Nav className="me-auto">
-                <Nav.Link href="/create">Create Listing</Nav.Link>
+            <Navbar.Brand href = "/">Home</Navbar.Brand>
+              <Nav className = "me-auto">
+                <Nav.Link href = "/create">Create Listing</Nav.Link>
               </Nav>
             </Container>
         </Navbar>
