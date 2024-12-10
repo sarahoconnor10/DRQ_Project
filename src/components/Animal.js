@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 
 const Animal = (props) => {
     useEffect(() => {
-        console.log("animal item: ", props.myAnimal)
+        console.log("animal item: ", props.animal)
     }, [props.animal]);
 
     return (

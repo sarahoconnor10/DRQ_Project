@@ -1,6 +1,7 @@
 import Animal from "./Animal";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AdoptableAnimals from "./AdoptableAnimals";
 
 const Read = () => {
    const [animals, setAnimals] = useState([]);
@@ -14,11 +15,11 @@ const Read = () => {
         .catch((error) => {
             console.log(error);
         });
-    });
+    }, []);
     
     return (
         <div>
-            <Animal Animals = {animals}/>
+            <AdoptableAnimals Animals = {animals}/>
         </div>
     );
 }

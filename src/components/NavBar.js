@@ -6,11 +6,11 @@ const NavBar = () => {
     return (
         <Navbar bg="dark" data-bs-theme="dark" >
             <Container>
-                <Navbar.Brand href="/home">Home</Navbar.Brand>
-                <Nav className="me-auto">
-                    <Nav.Link href="/adoptable">Adoptable Animals</Nav.Link>
-                    <Nav.Link href="/create">Create Listing</Nav.Link>
-                </Nav>
+            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+              <Nav className="me-auto">
+                <Nav.Link href="/create">Create</Nav.Link>
+                <Nav.Link href="/adoptable">Read</Nav.Link>
+              </Nav>
             </Container>
         </Navbar>
     );
