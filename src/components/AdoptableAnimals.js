@@ -2,14 +2,27 @@
 import Animal from "./Animal";
 
 const AdoptableAnimals = (props) => {
-    return props.Animals.map(
-        (tempAnimal) => {
-            return <Animal 
-                animal={tempAnimal} 
-                key={tempAnimal._id} 
-                Reload={props.ReloadData} 
-            />
-        }
+    if (!props.Animals || props.Animals.length === 0) {
+        return <h4>No adoptable animals found.</h4>
+    }
+
+    return (
+        <div
+            style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "0.5rem"
+            }}
+        >
+            {props.Animals.map((tempAnimal) => (
+                <Animal
+                    animal={tempAnimal}
+                    key={tempAnimal._id}
+                    Reload={props.ReloadData}
+                />
+            ))}
+        </div>
     );
 }
 

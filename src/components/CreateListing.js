@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-//form to input animal data + submit button
-
 const CreateListing = () => {
     const [name, setName] = useState('');
     const [animalType, setAnimalType] = useState('');

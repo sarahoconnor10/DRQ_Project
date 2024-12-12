@@ -21,11 +21,6 @@ const Animal = (props) => {
     }, [props.animal]);
 
     return (
-        <div className="App" style={{
-                                display: "flex", 
-                                justifyContent: "center", 
-                                alignItems: "center", 
-                                margin: 10}}>
             <Card style={{width: "18rem"}} border="muted">
                 <Card.Img
                     alt={props.animal.name}
@@ -44,7 +39,6 @@ const Animal = (props) => {
                     
                 </Card.Body>
             </Card>
-        </div>
     );
 }
 
