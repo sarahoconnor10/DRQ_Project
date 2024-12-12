@@ -25,7 +25,7 @@ const Animal = (props) => {
                 <Card.Img
                     alt={props.animal.name}
                     src={props.animal.image}
-                    style={{ height: 280, width: "18rem" }}
+                    style={{ height: 230, width: "18rem" }}
                     variant="top"
                 />
                 <Card.Body>
@@ -35,7 +35,7 @@ const Animal = (props) => {
                     </Card.Text>
                     
                     <Link to={"/edit/" + props.animal._id} className="btn btn-primary" style={{margin: 2.5}}>Edit</Link>
-                    <Button className="btn btn-danger" onClick={handleDelete} style={{margin: 2.5}}>Delete</Button>
+                    <Button variant="outline-danger" onClick={handleDelete} style={{margin: 2.5}}>Delete</Button>
                     
                 </Card.Body>
             </Card>

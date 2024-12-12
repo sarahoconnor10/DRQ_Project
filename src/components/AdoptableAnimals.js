@@ -7,21 +7,25 @@ const AdoptableAnimals = (props) => {
     }
 
     return (
-        <div
-            style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: "0.5rem"
-            }}
-        >
-            {props.Animals.map((tempAnimal) => (
-                <Animal
-                    animal={tempAnimal}
-                    key={tempAnimal._id}
-                    Reload={props.ReloadData}
-                />
-            ))}
+        <div>
+            <h1>Adoptable Animals</h1>
+            <div
+                style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    gap: "0.5rem"
+                }}
+            >
+                
+                {props.Animals.map((tempAnimal) => (
+                    <Animal
+                        animal={tempAnimal}
+                        key={tempAnimal._id}
+                        Reload={props.ReloadData}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

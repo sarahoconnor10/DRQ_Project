@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Form from 'react-bootstrap/Form'
+import { Button } from "react-bootstrap";
 
 const CreateListing = () => {
     const [name, setName] = useState('');
@@ -15,54 +17,56 @@ const CreateListing = () => {
         console.log(animal);
 
         axios.post('http://localhost:4000/api/Animals', animal)
-            .then((res) => { 
+            .then((res) => {
                 console.log(res.data);
                 navigate('/');
-             })
+            })
             .catch();
     }
 
     return (
-        <div className="App">
+        <div>
             <h1>Create new listing</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Add Name: </label>
-                    <input type="text"
-                        className="form-control"
+            <Form>
+                <Form.Group className="mb-3">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text"
+                        placeholder="Enter Animal Name"
                         value={name}
-                        onChange={(e) => { setName(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Add Type: </label>
-                    <input type="text"
-                        className="form-control"
+                        onChange={(e) => { setName(e.target.value) }} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Animal Type</Form.Label>
+
+                    <Form.Select
                         value={animalType}
                         onChange={(e) => { setAnimalType(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Add Age: </label>
-                    <input type="text"
-                        className="form-control"
+                    >
+                        <option>Choose Animal Type</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Small Mammal">Small mammal</option>
+                        <option value="Other">Other</option>
+                    </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Age</Form.Label>
+                    <Form.Control type="text"
+                        placeholder="Enter Animal Age"
                         value={age}
-                        onChange={(e) => { setAge(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Add Image link: </label>
-                    <input type="text"
-                        className="form-control"
+                        onChange={(e) => { setAge(e.target.value) }} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Image Link</Form.Label>
+                    <Form.Control type="text"
+                        placeholder="Enter Image Link"
                         value={image}
-                        onChange={(e) => { setImage(e.target.value) }}
-                    />
-                </div>
-                <br></br>
-                <div>
-                    <input type="submit" value="Create listing" className="btn btn-primary" />
-                </div>
-            </form>
+                        onChange={(e) => { setImage(e.target.value) }} />
+                </Form.Group>
+                <Button variant="outline-primary" type="submit" onClick={handleSubmit}>
+                    Create Listing
+                </Button>
+            </Form>
         </div>
     );
 }
