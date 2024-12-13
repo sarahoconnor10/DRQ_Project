@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
 import AdoptableAnimals from "./AdoptableAnimals";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Animal from "./Animal";
 import { toast } from 'react-toastify';
 
 const Read = () => {
     const [animals, setAnimals] = useState([]);
-    const [animal, setAnimal] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState([]);
     const [animalType, setAnimalType] = useState("");
 
-
+    // use Axios to reload data from the server
     const ReloadData = () => {
         axios.get('http://localhost:4000/api/Animals')
             .then((res) => {
@@ -29,6 +26,7 @@ const Read = () => {
         ReloadData();
     }, []);
 
+    // Handling filter by animal type
     const handleFilterChange = (e) => {
         const selected = e.target.value;
         setAnimalType(selected);
