@@ -39,6 +39,8 @@
 
 .bg {
   background-color: #e1ecfd;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 div {

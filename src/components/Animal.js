@@ -10,6 +10,8 @@ import { toast } from 'react-toastify';
 const Animal = (props) => {
     const [showModal, setShowModal] = useState(false);
 
+   
+
     const handleDelete = (e) => {
         e.preventDefault();
         axios.delete('http://localhost:4000/api/Animals/' + props.animal._id)
