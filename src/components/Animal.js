@@ -32,10 +32,10 @@ const Animal = (props) => {
         <div >
             <Card style={{width: "18rem", height: "28rem" }} border="muted" className="mb-5">
                 <div className="App mt-2">
-                <Card.Img
+                <Card.Img className="card-image"
                     alt={props.animal.name}
                     src={props.animal.image}
-                    style={{ height: 230, width: "17rem", border:"2px solid grey" }}
+                    style={{ height: 230, width: "17rem" }}
                     variant="top"
                 />
                 </div>
