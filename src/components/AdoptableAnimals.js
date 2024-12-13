@@ -8,8 +8,9 @@ const AdoptableAnimals = (props) => {
 
     return (
         <div className="bg">
-            <div className="p-3 header" >
+            <div className="p-2" >
                 <h1>Adoptable Animals</h1>
+                <hr/>
             </div>
             <div
                 style={{

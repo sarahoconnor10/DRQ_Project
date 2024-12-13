@@ -21,13 +21,15 @@ const Animal = (props) => {
     }, [props.animal]);
 
     return (
-            <Card style={{width: "18rem"}} border="muted">
+            <Card style={{width: "18rem"}} border="muted" className="mb-5">
+                <div className="App mt-2">
                 <Card.Img
                     alt={props.animal.name}
                     src={props.animal.image}
-                    style={{ height: 230, width: "18rem" }}
+                    style={{ height: 230, width: "17rem", border:"2px solid grey" }}
                     variant="top"
                 />
+                </div>
                 <Card.Body>
                     <Card.Title>{props.animal.name}</Card.Title>
                     <Card.Subtitle>
@@ -36,10 +38,10 @@ const Animal = (props) => {
                     <Card.Text>
                         {props.animal.description}
                     </Card.Text>
-                    
-                    <Link to={"/edit/" + props.animal._id} className="btn btn-primary" style={{margin: 2.5}}>Edit</Link>
-                    <Button variant="outline-danger" onClick={handleDelete} style={{margin: 2.5}}>Delete</Button>
-                    
+                    <div className="App">
+                        <Link to={"/edit/" + props.animal._id} className="btn btn-outline-primary" style={{margin: 2.5}}>Edit</Link>
+                        <Button variant="outline-danger" onClick={handleDelete} style={{margin: 2.5}}>Remove</Button>   
+                    </div>
                 </Card.Body>
             </Card>
     );

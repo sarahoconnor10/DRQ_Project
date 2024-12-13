@@ -10,6 +10,7 @@ const EditListing = () => {
     const [name, setName] = useState('');
     const [animalType, setAnimalType] = useState('');
     const [age, setAge] = useState('');
+    const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
     const navigate = useNavigate();
 
@@ -19,6 +20,7 @@ const EditListing = () => {
                 setName(res.data.name);
                 setAnimalType(res.data.animalType)
                 setAge(res.data.age);
+                setDescription(res.data.description);
                 setImage(res.data.image);
             })
             .catch((err) => {
@@ -28,7 +30,7 @@ const EditListing = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newAnimal = { name, animalType, age, image };
+        const newAnimal = { name, animalType, age, description, image };
         axios.put('http://localhost:4000/api/Animals/' + id, newAnimal)
             .then((res) => {
                 console.log(res.data);
@@ -41,8 +43,9 @@ const EditListing = () => {
 
 
     return (
-        <div className="container">
-            <h1>Edit Listing</h1>
+        <div className="container bg">
+            <h1 className="pt-2">Edit Listing</h1>
+            <hr/>
             <Form>
                 <Form.Group className="mb-3">
                     <Form.Label>Edit Name</Form.Label>
@@ -70,6 +73,13 @@ const EditListing = () => {
                         placeholder="Enter Animal Age"
                         value={age}
                         onChange={(e) => { setAge(e.target.value) }} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control as="textarea" rows={3}
+                        placeholder="Enter Short Animal Description"
+                        value={description}
+                        onChange={(e) => { setDescription(e.target.value) }} />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Edit Image Link</Form.Label>

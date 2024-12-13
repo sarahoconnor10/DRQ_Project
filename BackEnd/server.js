@@ -28,6 +28,7 @@ const animalSchema = new mongoose.Schema({
   name: String,
   animalType: String,
   age: String,
+  description: String,
   image: String
 });
 
@@ -57,8 +58,8 @@ app.delete('/api/Animals/:id', async (req, res) => {
 });
 
 app.post('/api/Animals', async (req, res) => {
-  const { name, animalType, age, image } = req.body;
-  const newAnimal = new animalModel({ name, animalType, age, image });
+  const { name, animalType, age, description, image } = req.body;
+  const newAnimal = new animalModel({ name, animalType, age, description, image });
   await newAnimal.save();
   res.status(201).json({ "message": "Animal added.", Animal: newAnimal });
   //^^ send back json data with message + animal item
