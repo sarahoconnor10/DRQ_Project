@@ -2,14 +2,18 @@ import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Modal } from "react-bootstrap";
 
 const Animal = (props) => {
+    const [showModal, setShowModal] = useState(false);
+
     const handleDelete = (e) => {
         e.preventDefault();
         axios.delete('http://localhost:4000/api/Animals/' + props.animal._id)
             .then((res) => {
                 props.Reload();
+                setShowModal(false);
             })
             .catch((error) => {
                 console.log(error);
@@ -21,6 +25,7 @@ const Animal = (props) => {
     }, [props.animal]);
 
     return (
+        <div >
             <Card style={{width: "18rem"}} border="muted" className="mb-5">
                 <div className="App mt-2">
                 <Card.Img
@@ -40,10 +45,28 @@ const Animal = (props) => {
                     </Card.Text>
                     <div className="App">
                         <Link to={"/edit/" + props.animal._id} className="btn btn-outline-primary" style={{margin: 2.5}}>Edit</Link>
-                        <Button variant="outline-danger" onClick={handleDelete} style={{margin: 2.5}}>Remove</Button>   
+                        <Button variant="outline-danger" onClick={() => setShowModal(true)} style={{margin: 2.5}}>Remove</Button>   
                     </div>
                 </Card.Body>
             </Card>
+
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+            <Modal.Header closeButton>
+                    <Modal.Title>Confirm Delete</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Are you sure you want to remove <strong>{props.animal.name}'s</strong> listing? This action cannot be undone.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowModal(false)}>
+                        Cancel
+                    </Button>
+                    <Button variant="danger" onClick={handleDelete}>
+                        Remove
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </div>
     );
 }
 
