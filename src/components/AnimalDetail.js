@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {Card} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
 
 const AnimalDetail = (props) => {
     let { id } = useParams();
@@ -13,20 +12,20 @@ const AnimalDetail = (props) => {
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
 
-   
     useEffect(() => {
+        // Fetch data by animal ID
         axios.get('http://localhost:4000/api/Animals/' + id)
-        .then((res) => {
-            setName(res.data.name);
-            setAnimalType(res.data.animalType)
-            setAge(res.data.age);
-            setDescription(res.data.description);
-            setImage(res.data.image);
-        })
-        .catch((e) => {
-            console.error(e);
-        });
-    }, [id]);
+            .then((res) => {
+                setName(res.data.name);
+                setAnimalType(res.data.animalType)
+                setAge(res.data.age);
+                setDescription(res.data.description);
+                setImage(res.data.image);
+            })
+            .catch((e) => {
+                console.error(e);
+            });
+    }, [id]); // Rerun when 'id' changes
 
     return (
         <div className="container" style={{ marginTop: "20px" }}>
@@ -38,10 +37,12 @@ const AnimalDetail = (props) => {
                     <Card.Text>
                         {description || "No description available."}
                     </Card.Text>
-                    <Link to="/" className="btn btn-primary" style={{margin: 2.5}}>Back to Animals</Link>
-                    <Link to={"/edit/" + id} className="btn btn-outline-primary" style={{margin: 2.5}}>
-                            Edit
-                        </Link>
+                    <Link to="/" className="btn btn-primary" style={{ margin: 2.5 }}>
+                        Back to Animals
+                    </Link>
+                    <Link to={"/edit/" + id} className="btn btn-outline-primary" style={{ margin: 2.5 }}>
+                        Edit
+                    </Link>
                 </Card.Body>
             </Card>
         </div>
@@ -49,6 +50,3 @@ const AnimalDetail = (props) => {
 }
 
 export default AnimalDetail;
-
-
-
