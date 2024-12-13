@@ -11,12 +11,17 @@ const CreateListing = () => {
     const [age, setAge] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
+
+    // useNavigate allows for navigation upon submitting the form
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const animal = { name, animalType, age, description, image };
-        console.log(animal);
+        console.log(animal); //debugging
+
+        // Validating all fields have been filled in before continuing
         if (animal.name !== "" && animal.animalType !== "" &&
             animal.age !== "" && animal.description !== "" &&
             animal.image !== "") {
@@ -39,7 +44,7 @@ const CreateListing = () => {
     return (
         <div className="container bg">
             <h1 className="pt-2">Create new listing</h1>
-            <hr/>
+            <hr />
             <Form>
                 <Form.Group className="mb-3">
                     <Form.Label>Name</Form.Label>
