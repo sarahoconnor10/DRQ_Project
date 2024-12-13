@@ -17,8 +17,7 @@ const AdoptableAnimals = (props) => {
                     flexWrap: "wrap",
                     justifyContent: "center",
                     gap: "0.5rem"
-                }}
-            >
+                }}>
 
                 {props.Animals.map((tempAnimal) => (
                     <Animal

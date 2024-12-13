@@ -34,6 +34,7 @@ const EditListing = () => {
         e.preventDefault();
 
         const newAnimal = { name, animalType, age, description, image };
+        
         // use axios 'put' request to update animal data
         axios.put('http://localhost:4000/api/Animals/' + id, newAnimal)
             .then((res) => {
@@ -46,7 +47,6 @@ const EditListing = () => {
                 toast.error("Failed to update the listing. Please try again.");
             });
     }
-
 
     return (
         <div className="container bg">

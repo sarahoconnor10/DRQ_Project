@@ -6,12 +6,12 @@ import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { toast } from 'react-toastify';
 
-
 const Animal = (props) => {
     const [showModal, setShowModal] = useState(false);
 
     const handleDelete = (e) => {
         e.preventDefault();
+        
         //Using axios to make a 'delete' request to the server & remove animal from DB
         axios.delete('http://localhost:4000/api/Animals/' + props.animal._id)
             .then((res) => {
