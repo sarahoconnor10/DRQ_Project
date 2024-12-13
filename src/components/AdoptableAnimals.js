@@ -3,12 +3,14 @@ import Animal from "./Animal";
 
 const AdoptableAnimals = (props) => {
     if (!props.Animals || props.Animals.length === 0) {
-        return <h4>No adoptable animals found.</h4>
+        return <div><h4>No adoptable animals found.</h4></div>
     }
 
     return (
-        <div>
-            <h1>Adoptable Animals</h1>
+        <div className="bg">
+            <div className="p-3 header" >
+                <h1>Adoptable Animals</h1>
+            </div>
             <div
                 style={{
                     display: "flex",

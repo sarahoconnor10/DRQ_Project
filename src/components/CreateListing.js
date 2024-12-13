@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Form from 'react-bootstrap/Form'
+import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CreateListing = () => {
     const [name, setName] = useState('');
@@ -15,17 +15,21 @@ const CreateListing = () => {
         e.preventDefault();
         const animal = { name, animalType, age, image };
         console.log(animal);
-
-        axios.post('http://localhost:4000/api/Animals', animal)
-            .then((res) => {
-                console.log(res.data);
-                navigate('/');
-            })
-            .catch();
+        if (animal.name !== "" && animal.animalType !== "" &&
+            animal.age !== "" && animal.image !== "") {
+            axios.post('http://localhost:4000/api/Animals', animal)
+                .then((res) => {
+                    console.log(res.data);
+                    navigate('/');
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        }
     }
 
     return (
-        <div>
+        <div className="container">
             <h1>Create new listing</h1>
             <Form>
                 <Form.Group className="mb-3">
@@ -37,7 +41,6 @@ const CreateListing = () => {
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Animal Type</Form.Label>
-
                     <Form.Select
                         value={animalType}
                         onChange={(e) => { setAnimalType(e.target.value) }}

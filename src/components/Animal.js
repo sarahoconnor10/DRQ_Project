@@ -30,8 +30,11 @@ const Animal = (props) => {
                 />
                 <Card.Body>
                     <Card.Title>{props.animal.name}</Card.Title>
-                    <Card.Text>
+                    <Card.Subtitle>
                         {props.animal.animalType}, Age {props.animal.age}
+                    </Card.Subtitle>
+                    <Card.Text>
+                        {props.animal.description}
                     </Card.Text>
                     
                     <Link to={"/edit/" + props.animal._id} className="btn btn-primary" style={{margin: 2.5}}>Edit</Link>

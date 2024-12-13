@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.bg {
+  background-color: #f7eedd;
+}
+
+div {
+  font-family: "Raleway", sans-serif;
+}

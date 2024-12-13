@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import Form from 'react-bootstrap/Form'
+import { Button } from "react-bootstrap";
 
 const EditListing = () => {
     let { id } = useParams();
@@ -39,47 +41,47 @@ const EditListing = () => {
 
 
     return (
-        <div className="App">
+        <div className="container">
             <h1>Edit Listing</h1>
-            <hr />
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Edit Name: </label>
-                    <input type="text"
-                        className="form-control"
+            <Form>
+                <Form.Group className="mb-3">
+                    <Form.Label>Edit Name</Form.Label>
+                    <Form.Control type="text"
+                        placeholder="Enter Animal Name"
                         value={name}
-                        onChange={(e) => { setName(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Edit Type: </label>
-                    <input type="text"
-                        className="form-control"
+                        onChange={(e) => { setName(e.target.value) }} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Edit Animal Type</Form.Label>
+                    <Form.Select
                         value={animalType}
                         onChange={(e) => { setAnimalType(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Edit Age: </label>
-                    <input type="text"
-                        className="form-control"
+                    >
+                        <option>Choose Animal Type</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Small Mammal">Small mammal</option>
+                        <option value="Other">Other</option>
+                    </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Edit Age</Form.Label>
+                    <Form.Control type="text"
+                        placeholder="Enter Animal Age"
                         value={age}
-                        onChange={(e) => { setAge(e.target.value) }}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Edit Image Link: </label>
-                    <input type="text"
-                        className="form-control"
+                        onChange={(e) => { setAge(e.target.value) }} />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Label>Edit Image Link</Form.Label>
+                    <Form.Control type="text"
+                        placeholder="Enter Image Link"
                         value={image}
-                        onChange={(e) => { setImage(e.target.value) }}
-                    />
-                </div>
-                <br></br>
-                <div className="form-group">
-                    <input type="submit" value="Edit Listing" className="btn btn-primary" />
-                </div>
-            </form>
+                        onChange={(e) => { setImage(e.target.value) }} />
+                </Form.Group>
+                <Button variant="outline-primary" type="submit" onClick={handleSubmit}>
+                    Save Changes
+                </Button>
+            </Form>
         </div>
     );
 }
