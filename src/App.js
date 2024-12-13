@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import CreateListing from './components/CreateListing';
 import Read from './components/Read';
 import EditListing from './components/EditListing';
+import AnimalDetail from './components/AnimalDetail';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Read />} />
           <Route path="/create" element={<CreateListing />} />
-          <Route path="edit/:id" element={<EditListing />} />
+          <Route path="/edit/:id" element={<EditListing />} />
+          <Route path="/animal/:id" element={<AnimalDetail />} />
         </Routes>
       </Router>
       <ToastContainer />

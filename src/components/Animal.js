@@ -50,8 +50,12 @@ const Animal = (props) => {
                     {props.animal.description || "No description available."}
                     </Card.Text>
                     <div className="App">
-                        <Link to={"/edit/" + props.animal._id} className="btn btn-outline-primary" style={{margin: 2.5}}>Edit</Link>
-                        <Button variant="outline-danger" onClick={() => setShowModal(true)} style={{margin: 2.5}}>Remove</Button>   
+                        <Link to={'/animal/' + props.animal._id} className="btn btn-info" style={{margin: 2.5}}>
+                            Expand Details
+                        </Link>
+                        <Button variant="outline-danger" onClick={() => setShowModal(true)} style={{margin: 2.5}}>
+                            Remove
+                        </Button>   
                     </div>
                 </Card.Body>
             </Card>

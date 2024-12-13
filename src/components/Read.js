@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react";
 import AdoptableAnimals from "./AdoptableAnimals";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import Animal from "./Animal";
+import { toast } from 'react-toastify';
 
 const Read = () => {
     const [animals, setAnimals] = useState([]);
+    const [animal, setAnimal] = useState([]);
     const [filteredAnimals, setFilteredAnimals] = useState([]);
     const [animalType, setAnimalType] = useState("");
 
 
     const ReloadData = () => {
         axios.get('http://localhost:4000/api/Animals')
-        .then((res) => {
-            console.log(res.data);
-            setAnimals(res.data.animals);
-            setFilteredAnimals(res.data.animals);
-        })
-        .catch((e) => {
-            console.log(e);
-        });
+            .then((res) => {
+                console.log(res.data);
+                setAnimals(res.data.animals);
+                setFilteredAnimals(res.data.animals);
+            })
+            .catch((e) => {
+                console.log(e);
+                toast.error("Animal not found.");
+            });
     }
-    
+
     useEffect(() => {
         ReloadData();
     }, []);
@@ -28,7 +33,7 @@ const Read = () => {
         const selected = e.target.value;
         setAnimalType(selected);
 
-        if(selected === ""){
+        if (selected === "") {
             setFilteredAnimals(animals); //show all
         }
         else {
@@ -54,7 +59,7 @@ const Read = () => {
                     <option value="Other">Other</option>
                 </select>
             </div>
-            <AdoptableAnimals Animals={filteredAnimals}  ReloadData={ReloadData}/>
+            <AdoptableAnimals Animals={filteredAnimals} ReloadData={ReloadData} />
         </div>
     );
 }
