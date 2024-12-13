@@ -44,3 +44,12 @@
 div {
   font-family: "Raleway", sans-serif;
 }
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-text {
+  height: 5rem; 
+  overflow-y: auto; 
+}

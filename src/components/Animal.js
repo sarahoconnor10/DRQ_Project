@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { toast } from 'react-toastify';
 
+
 const Animal = (props) => {
     const [showModal, setShowModal] = useState(false);
 
@@ -29,7 +30,7 @@ const Animal = (props) => {
 
     return (
         <div >
-            <Card style={{width: "18rem"}} border="muted" className="mb-5">
+            <Card style={{width: "18rem", height: "28rem" }} border="muted" className="mb-5">
                 <div className="App mt-2">
                 <Card.Img
                     alt={props.animal.name}
@@ -38,13 +39,13 @@ const Animal = (props) => {
                     variant="top"
                 />
                 </div>
-                <Card.Body>
+                <Card.Body className="card-body">
                     <Card.Title>{props.animal.name}</Card.Title>
                     <Card.Subtitle>
                         {props.animal.animalType}, Age {props.animal.age}
                     </Card.Subtitle>
-                    <Card.Text>
-                        {props.animal.description}
+                    <Card.Text className="card-text">
+                    {props.animal.description || "No description available."}
                     </Card.Text>
                     <div className="App">
                         <Link to={"/edit/" + props.animal._id} className="btn btn-outline-primary" style={{margin: 2.5}}>Edit</Link>

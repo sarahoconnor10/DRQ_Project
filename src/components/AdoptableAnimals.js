@@ -1,6 +1,7 @@
 // map each animal to form a list
 import Animal from "./Animal";
 
+
 const AdoptableAnimals = (props) => {
     if (!props.Animals || props.Animals.length === 0) {
         return <div><h4>No adoptable animals found.</h4></div>
