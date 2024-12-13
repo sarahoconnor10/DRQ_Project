@@ -1,8 +1,8 @@
 import axios from 'axios';
+import Form from 'react-bootstrap/Form'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import Form from 'react-bootstrap/Form'
 import { Button } from "react-bootstrap";
 import { toast } from 'react-toastify';
 
@@ -13,6 +13,7 @@ const EditListing = () => {
     const [age, setAge] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,15 +32,17 @@ const EditListing = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const newAnimal = { name, animalType, age, description, image };
+        // use axios 'put' request to update animal data
         axios.put('http://localhost:4000/api/Animals/' + id, newAnimal)
             .then((res) => {
-                console.log(res.data);
+                console.log(res.data); //debugging
                 navigate('/');
                 toast.success("Listing details updated successfully.");
             })
             .catch((err) => {
-                console.log(err);
+                console.log(err); //debugging
                 toast.error("Failed to update the listing. Please try again.");
             });
     }
