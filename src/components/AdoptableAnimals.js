@@ -1,6 +1,4 @@
-// map each animal to form a list
 import Animal from "./Animal";
-
 
 const AdoptableAnimals = (props) => {
     if (!props.Animals || props.Animals.length === 0) {
@@ -11,7 +9,7 @@ const AdoptableAnimals = (props) => {
         <div className="bg">
             <div className="p-2" >
                 <h1>Adoptable Animals</h1>
-                <hr/>
+                <hr />
             </div>
             <div
                 style={{
@@ -21,7 +19,7 @@ const AdoptableAnimals = (props) => {
                     gap: "0.5rem"
                 }}
             >
-                
+
                 {props.Animals.map((tempAnimal) => (
                     <Animal
                         animal={tempAnimal}

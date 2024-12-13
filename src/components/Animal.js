@@ -10,14 +10,13 @@ import { toast } from 'react-toastify';
 const Animal = (props) => {
     const [showModal, setShowModal] = useState(false);
 
-   
-
     const handleDelete = (e) => {
         e.preventDefault();
+        //Using axios to make a 'delete' request to the server & remove animal from DB
         axios.delete('http://localhost:4000/api/Animals/' + props.animal._id)
             .then((res) => {
                 props.Reload();
-                setShowModal(false);
+                setShowModal(false); //close modal
                 toast.success(`${props.animal.name}'s listing has been removed successfully.`);
             })
             .catch((error) => {
@@ -27,7 +26,7 @@ const Animal = (props) => {
     }
 
     useEffect(() => {
-        // console.log("Animal item: ", props.animal)
+        console.log("Animal item: ", props.animal); //debugging
     }, [props.animal]);
 
     return (
@@ -60,6 +59,7 @@ const Animal = (props) => {
                 </Card.Body>
             </Card>
 
+            {/* Modal pop up for user to confirm deletion */}
             <Modal show={showModal} onHide={() => setShowModal(false)}>
             <Modal.Header closeButton>
                     <Modal.Title>Confirm Delete</Modal.Title>
