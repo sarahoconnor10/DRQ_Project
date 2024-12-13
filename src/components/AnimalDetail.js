@@ -46,8 +46,6 @@ const AnimalDetail = (props) => {
             </Card>
         </div>
     )
-    //George is a 5 year old, male Painted Turtle. He enjoys swimming in his vast enclosure, and likes to be left alone most of the time.
-    //https://media.istockphoto.com/id/537875292/photo/little-turtle.jpg?s=612x612&w=0&k=20&c=B0-fFNpQ9s68XRV7hcByYsxdUzgL-tQNpCfkuIyxn74=
 }
 
 export default AnimalDetail;
