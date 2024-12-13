@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const CreateListing = () => {
     const [name, setName] = useState('');
@@ -22,11 +23,16 @@ const CreateListing = () => {
             axios.post('http://localhost:4000/api/Animals', animal)
                 .then((res) => {
                     console.log(res.data);
+                    toast.success("Listing added successfully.");
                     navigate('/');
                 })
                 .catch((e) => {
                     console.log(e);
+                    toast.error("Failed to add listing. Please try again.");
                 });
+        }
+        else {
+            toast.warn("Please fill out all fields.");
         }
     }
 

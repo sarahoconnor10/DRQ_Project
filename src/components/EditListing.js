@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
 import { Button } from "react-bootstrap";
+import { toast } from 'react-toastify';
 
 const EditListing = () => {
     let { id } = useParams();
@@ -35,9 +36,11 @@ const EditListing = () => {
             .then((res) => {
                 console.log(res.data);
                 navigate('/');
+                toast.success("Listing details updated successfully.");
             })
             .catch((err) => {
                 console.log(err);
+                toast.error("Failed to update the listing. Please try again.");
             });
     }
 

@@ -1,5 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import CreateListing from './components/CreateListing';
@@ -8,14 +10,17 @@ import EditListing from './components/EditListing';
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Read />} />
-        <Route path="/create" element={<CreateListing />} />
-        <Route path="edit/:id" element={<EditListing />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Read />} />
+          <Route path="/create" element={<CreateListing />} />
+          <Route path="edit/:id" element={<EditListing />} />
+        </Routes>
+      </Router>
+      <ToastContainer />
+    </>
   );
 }
 

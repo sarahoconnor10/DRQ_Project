@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
+import { toast } from 'react-toastify';
 
 const Animal = (props) => {
     const [showModal, setShowModal] = useState(false);
@@ -14,9 +15,11 @@ const Animal = (props) => {
             .then((res) => {
                 props.Reload();
                 setShowModal(false);
+                toast.success(`${props.animal.name}'s listing has been removed successfully.`);
             })
             .catch((error) => {
                 console.log(error);
+                toast.error("Failed to delete the animal. Please try again.");
             });
     }
 
